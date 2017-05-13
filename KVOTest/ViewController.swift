@@ -10,6 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    // MARK: - Properties
+    
+    @IBOutlet weak var timeLabel: UILabel!
+    
+    // MARK: -
+    
+    let configurationManager = ConfigurationManager(withConfiguration: Configuration())
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,6 +28,12 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func updateConfiguration(_ sender: UIButton) {
+        
+        configurationManager.updateConfiguration()
+    }
 
+    
+    
 }
 

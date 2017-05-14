@@ -20,7 +20,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        addObserver(self, forKeyPath: #keyPath(configurationManager.configuration.updatedAt), options: [.old, .new], context: nil)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,6 +35,14 @@ class ViewController: UIViewController {
         configurationManager.updateConfiguration()
     }
 
+    // MARK: - Key-Value Observing
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == #keyPath(configurationManager.configuration.updatedAt){
+            // Update Time Label
+            timeLabel.text = configurationManager.updatedAt
+        }
+    }
     
     
 }

@@ -10,6 +10,6 @@ import Foundation
 
 class Configuration: NSObject {
     
-    var createdAt = Date()
-    var updatedAt = Date()
+    dynamic var createdAt = Date()
+    dynamic var updatedAt = Date()
 }
